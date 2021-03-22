@@ -10,6 +10,9 @@ pytest = "^6.2.2"
 fastapi = "^0.63.0"
 pyzmq = "^22.0.3"
 uvicorn = "^0.13.4"
+psutil = "^5.8.0"
+ujson = "^4.0.2"
+aiohttp = "^3.7.4"
 
 [tool.poetry.dev-dependencies]
 pre-commit = "^2.11.1"
