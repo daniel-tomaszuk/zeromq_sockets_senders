@@ -14,6 +14,6 @@ RUN pip install poetry==1.1.5
 RUN poetry config virtualenvs.create false
 RUN poetry install -n --no-dev
 
-WORKDIR ${APP_START_DIR}
+WORKDIR ${APP_ROOT_DIR}
 
 EXPOSE 8000
