@@ -13,7 +13,7 @@ def get_default_allowed_hosts() -> List[str]:
 class AppSettings:
 
     DEBUG: bool = True
-    PROJECT_NAME: str = "ZeroMQ-Sockets"
+    PROJECT_NAME: str = "ZeroMQ-Sockets-Sender"
     ALLOWED_HOSTS: List[str] = field(default_factory=get_default_allowed_hosts)
 
     @staticmethod
