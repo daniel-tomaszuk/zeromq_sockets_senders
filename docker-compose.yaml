@@ -1,0 +1,21 @@
+version: "3.7"
+
+# x-extension fields
+x-env_file: &env_file
+  env_file:
+    - ./.env
+
+services:
+  backend:
+    <<: *env_file
+    command: python asgi.py
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    tty: true
+    stdin_open: true
+    ports:
+      - 8001:8000
+    restart: always
+    volumes:
+      - .src/app/:/src/app
