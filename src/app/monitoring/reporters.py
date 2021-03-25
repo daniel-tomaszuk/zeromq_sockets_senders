@@ -11,7 +11,7 @@ from core.config import settings
 zmq_context: zmq.asyncio.Context = zmq.asyncio.Context()
 
 
-async def stats_reporter(color: str):
+async def stats_reporter():
     process: psutil.Process = psutil.Process()
     sock: zmq.asyncio.Socket = zmq_context.socket(zmq.PUB)
     sock.setsockopt(zmq.LINGER, 1)
@@ -19,11 +19,11 @@ async def stats_reporter(color: str):
     with suppress(asyncio.CancelledError):
         while True:
             data_to_send = dict(
-                color=color,
                 timestamp=datetime.now(tz=timezone.utc).isoformat(),
                 cpu=process.cpu_percent(),
                 mem=process.memory_full_info().rss / 1024 / 1024,
-                app_name=settings.PROJECT_NAME,
+                app_name=settings.APP_NAME,
+                color=settings.APP_COLOR,
             )
 
             await sock.send_json(data_to_send)

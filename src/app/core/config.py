@@ -16,6 +16,9 @@ class AppSettings:
     PROJECT_NAME: str = "ZeroMQ-Sockets-Sender"
     ALLOWED_HOSTS: List[str] = field(default_factory=get_default_allowed_hosts)
 
+    APP_NAME: str = os.environ.get("APP_NAME") or PROJECT_NAME
+    APP_COLOR: str = os.environ.get("APP_COLOR") or "black"
+
     @staticmethod
     def _prepare_debug(val: Any) -> bool:
         return str(val).lower() in ("true", "1")

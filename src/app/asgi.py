@@ -1,6 +1,7 @@
 import asyncio
 
 import uvicorn
+from core.config import settings
 from fastapi import FastAPI
 
 from app.main import get_application
@@ -12,7 +13,7 @@ asgi_app: FastAPI = get_application()
 
 @asgi_app.on_event("startup")
 async def add_app_db_events_listeners():
-    asyncio.create_task(stats_reporter(color="red"))
+    asyncio.create_task(stats_reporter())
 
 
 @asgi_app.on_event("shutdown")
