@@ -5,7 +5,7 @@ ENV SRC_DIR "/application"
 ENV APP_DIR ""
 ENV APP_ROOT_DIR "src/app/"
 
-RUN apt-get update && apt-get install make nano
+RUN apt-get update && apt-get --assume-yes install make nano netcat
 
 COPY ${APP_DIR} ${SRC_DIR}
 
