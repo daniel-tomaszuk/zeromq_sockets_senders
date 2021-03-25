@@ -27,6 +27,7 @@ services:
       APP_COLOR: red
     ports:
       - 8001:8000
+    container_name: backend_1
 
   backend_2:
     <<: *base_service_settings
@@ -35,6 +36,7 @@ services:
       APP_COLOR: green
     ports:
       - 8002:8000
+    container_name: backend_2
 
   backend_3:
     <<: *base_service_settings
@@ -43,3 +45,9 @@ services:
       APP_COLOR: blue
     ports:
       - 8003:8000
+    container_name: backend_3
+
+networks:
+  default:
+    external:
+      name: zeromq-network

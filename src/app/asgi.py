@@ -1,7 +1,6 @@
 import asyncio
 
 import uvicorn
-from core.config import settings
 from fastapi import FastAPI
 
 from app.main import get_application

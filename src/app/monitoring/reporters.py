@@ -15,7 +15,8 @@ async def stats_reporter():
     process: psutil.Process = psutil.Process()
     sock: zmq.asyncio.Socket = zmq_context.socket(zmq.PUB)
     sock.setsockopt(zmq.LINGER, 1)
-    sock.connect("tcp://0.0.0.0:8888")
+    sock.connect("tcp://backend_reporter:8888")
+
     with suppress(asyncio.CancelledError):
         while True:
             data_to_send = dict(
