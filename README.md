@@ -10,3 +10,18 @@ Check out receiver service here: https://github.com/dghy/zeromq_sockets_receiver
 
 
 <img width="1790" alt="Screenshot 2021-03-25 at 10 53 18" src="https://user-images.githubusercontent.com/16268031/112456193-ccf34480-8d5a-11eb-9e5c-0a88999e1ff5.png">
+
+
+## To start the senders:
+0. Docker and docker-compose are required.
+1. Create .env file in the same dir as docker-compose.yaml
+2.Type commands:
+```
+docker-compose up -d backend_1
+
+docker-compose up -d backend_2
+
+docker-compose up -d backend_3
+```
+
+3. After services build, make sure that receiver service is running (https://github.com/dghy/zeromq_sockets_receiver) then access http://localhost:8000/stats for performance graph. 
