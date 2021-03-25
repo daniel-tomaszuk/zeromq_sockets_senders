@@ -15,7 +15,7 @@ Check out receiver service here: https://github.com/dghy/zeromq_sockets_receiver
 ## To start the senders:
 0. Docker and docker-compose are required.
 1. Create .env file in the same dir as docker-compose.yaml
-2.Type commands:
+2. Type commands:
 ```
 docker-compose up -d backend_1
 
