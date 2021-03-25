@@ -1,6 +1,6 @@
 # TODO:
 
-Use https://github.com/zeromq/pyzmq with FastAPI to create toy distributed applicaation montitoring.
+Use https://github.com/zeromq/pyzmq with FastAPI to create distributed applicaation montitoring. This is just an exercise - DO NOT use in production.
 
 
 1. Create multiple docker images with "microservices" and one docker compose file to run them all [DONE].
