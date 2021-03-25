@@ -1,21 +1,45 @@
 version: "3.7"
 
 # x-extension fields
-x-env_file: &env_file
+x-env-file: &env_file
   env_file:
     - ./.env
 
+
+x-base-service: &base_service_settings
+  <<: *env_file
+  command: python asgi.py
+  build:
+    context: .
+    dockerfile: docker/Dockerfile
+  tty: true
+  stdin_open: true
+  restart: always
+  volumes:
+    - .src/app/:/src/app
+
+
 services:
-  backend:
-    <<: *env_file
-    command: python asgi.py
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    tty: true
-    stdin_open: true
+  backend_1:
+    <<: *base_service_settings
+    environment:
+      APP_NAME: backend_1
+      APP_COLOR: red
     ports:
       - 8001:8000
-    restart: always
-    volumes:
-      - .src/app/:/src/app
+
+  backend_2:
+    <<: *base_service_settings
+    environment:
+      APP_NAME: backend_2
+      APP_COLOR: green
+    ports:
+      - 8002:8000
+
+  backend_3:
+    <<: *base_service_settings
+    environment:
+      APP_NAME: backend_3
+      APP_COLOR: blue
+    ports:
+      - 8003:8000
